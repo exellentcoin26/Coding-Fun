@@ -1,10 +1,13 @@
 int order = 3;
 int totalPoints = round(pow(4, order));
+int cols = totalPoints/4;
+int colSize;
 
 PVector[] points = new PVector[totalPoints];
 
 void setup() {
   size(600, 600);
+  colSize = int(width/cols);
 }
 
 void draw() {
@@ -15,7 +18,8 @@ void draw() {
   
   beginShape();
   for (int i = 0; i < order * order; i++) {
-    vertex(hindexToxy(i, order));
+    PVector curr = hindexToxy(i, order);
+    vertex(curr.x * colSize, curr.y * colSize);
   }
   endShape();
   
